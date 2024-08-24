@@ -7,42 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vspo</title>
   <link rel="stylesheet" href="style.css?param=3.7">
+  <link rel="stylesheet" href="popup.css">
+  <script type="text/javascript" src="popup.js"></script>
 </head>
 
 <body>
   <div class="iconArea">
-    <!-- <div class="icondiv" alt="ぶいすぽ公式"><img src="images/official.jpg" class="icon" id="icon00" onclick="openLink('icon00')"></div>
-
-      <div class="icondiv" alt="花芽すみれ"><img src="images/member01.jpg" class="icon" id="icon01" onclick="openLink('icon01')"></div>
-      <div class="icondiv" alt="花芽なずな"><img src="images/member02.jpg" class="icon" id="icon02" onclick="openLink('icon02')"></div>
-      <div class="icondiv" alt="小雀とと"><img src="images/member03.jpg" class="icon" id="icon03" onclick="openLink('icon03')"></div>
-      <div class="icondiv" alt="一ノ瀬うるは"><img src="images/member04.jpg" class="icon" id="icon04" onclick="openLink('icon04')"></div>
-      <div class="icondiv" alt="胡桃のあ"><img src="images/member05.jpg" class="icon" id="icon05" onclick="openLink('icon05')"></div>
-      <div class="icondiv" alt="兎咲ミミ"><img src="images/member06.jpg" class="icon" id="icon06" onclick="openLink('icon06')"></div>
-      <div class="icondiv" alt="神成きゅぴ"><img src="images/member07.jpg" class="icon" id="icon07" onclick="openLink('icon07')"></div>
-      <div class="icondiv" alt="空澄セナ"><img src="images/member08.jpg" class="icon" id="icon08" onclick="openLink('icon08')"></div>
-      <div class="icondiv" alt="橘ひなの"><img src="images/member09.jpg" class="icon" id="icon09" onclick="openLink('icon09')"></div>
-      <div class="icondiv" alt="英リサ"><img src="images/member10.jpg" class="icon" id="icon10" onclick="openLink('icon10')"></div>
-      <div class="icondiv" alt="如月れん"><img src="images/member11.jpg" class="icon" id="icon11" onclick="openLink('icon11')"></div>
-      <div class="icondiv" alt="八雲べに"><img src="images/member12.jpg" class="icon" id="icon12" onclick="openLink('icon12')"></div>
-      <div class="icondiv" alt="藍沢エマ"><img src="images/member13.jpg" class="icon" id="icon13" onclick="openLink('icon13')"></div>
-      <div class="icondiv" alt="紫宮るな"><img src="images/member14.jpg" class="icon" id="icon14" onclick="openLink('icon14')"></div>
-      <div class="icondiv" alt="猫汰つな"><img src="images/member15.jpg" class="icon" id="icon15" onclick="openLink('icon15')"></div>
-      <div class="icondiv" alt="白波らむね"><img src="images/member16.jpg" class="icon" id="icon16" onclick="openLink('icon16')"></div>
-      <div class="icondiv" alt="小森めと"><img src="images/member17.jpg" class="icon" id="icon17" onclick="openLink('icon17')"></div>
-      <div class="icondiv" alt="夢野あかり"><img src="images/member18.jpg" class="icon" id="icon18" onclick="openLink('icon18')"></div>
-      <div class="icondiv" alt="夜乃くろむ"><img src="images/member19.jpg" class="icon" id="icon19" onclick="openLink('icon19')"></div>
-
-      <div class="icondiv" alt=""><img src="images/streamer01.jpg" class="icon" id="icon31" onclick="openLink('icon31')"></div>
-      <div class="icondiv" alt=""><img src="images/streamer02.jpg" class="icon" id="icon32" onclick="openLink('icon32')"></div>
-      <div class="icondiv" alt=""><img src="images/streamer03.jpg" class="icon" id="icon33" onclick="openLink('icon33')"></div>
-      <div class="icondiv" alt=""><img src="images/streamer04.jpg" class="icon" id="icon34" onclick="openLink('icon34')"></div>
-      <div class="icondiv" alt=""><img src="images/streamer05.jpg" class="icon" id="icon35" onclick="openLink('icon35')"></div>
-      <div class="icondiv" alt=""><img src="images/streamer06.jpg" class="icon" id="icon36" onclick="openLink('icon36')"></div>
-      <div class="icondiv" alt=""><img src="images/streamer07.jpg" class="icon" id="icon37" onclick="openLink('icon37')"></div>
-      <div class="icondiv" alt=""><img src="images/streamer08.jpg" class="icon" id="icon38" onclick="openLink('icon38')"></div>
-      <div class="icondiv" alt=""><img src="images/streamer09.jpg" class="icon" id="icon39" onclick="openLink('icon39')"></div> -->
-
   </div>
   <div class="Area">
     <div class="videoArea">
@@ -181,7 +151,7 @@
           console.log(channelData)
           const iconArea = document.querySelector('.iconArea');
           channelData.channels.forEach(channel => {
-            if (channel.No >= 1 && channel.No <= 30) {
+            if (channel.No >= 1 && channel.No <= 38) {
               const div = document.createElement('div');
               div.className = 'icondiv';
               div.setAttribute('alt', channel.Name);
@@ -200,12 +170,9 @@
         .catch(error => console.error('Error fetching JSON:', error));
     }
 
-    // // DOMが読み込まれたらアイコンを生成
-    // document.addEventListener('DOMContentLoaded', createIconElements);
-
     function CheckStream() {
       const alli = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
-        "31", "32", "33", "34", "35", "36", "37", "38", "39"];
+        "31", "32", "33", "34", "35", "36", "37", "38"];
       alli.forEach(async (key, index) => {
         console.log("CheckStream", key)
         let result = await getLink(key);
@@ -270,11 +237,9 @@
       const allw = ["w01", "w02", "w03", "w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
       allw.forEach((wNo, index) => {
         document.getElementById(wNo).getElementsByClassName("video")[0].src = "";
-        //document.getElementById(wNo).getElementsByClassName("video")[0].src="https://www.youtube.com/embed/1";
         document.getElementById(wNo).getElementsByClassName("video")[0].classList.add("no-content");
         try {
           document.getElementById(wNo).getElementsByClassName("chats")[0].src = "";
-          //document.getElementById(wNo).getElementsByClassName("chats")[0].src="https://www.youtube.com/embed/1";
           document.getElementById(wNo).getElementsByClassName("chats")[0].classList.add("no-content");
         } catch (e) { }
         document.getElementById(wNo).classList.add("cleared");
@@ -288,7 +253,7 @@
 
     }
     function NewFunction() {
-      showAlert('更新情報', '生配信中のチャンネルアイコンが緑色で表示されるようになりました!(手動更新)<br>ページの読み込み時のみ自動更新されます<br><br>全出場チームメンバーが確定しました', 'noClose');
+      showAlert('更新情報', '特になし', 'noClose');
     }
     function selectL(Lay) {
 
@@ -545,169 +510,55 @@
 
     }
     async function getLink(No) {
+      var YID = '';
+      var TID = '';
+      var StreamType = '';
+      var StreamURL = '';
+      var StreamTimeFlag = 0;
+      const channel = channelData.channels.find(channel => parseInt(channel.No) === parseInt(No));
+      if (channel) {
+        YID = channel.YID;
+        TID = channel.TID;
+        StreamType = channel.StreamType;
+        StreamURL = channel.StreamURL;
+        StreamTimeFlag = channel.StreamTimeFlag;
+        console.log([No, StreamType, StreamURL, StreamTimeFlag]);
+      } else {
+        console.log("No Not Found");
+        return [StreamType, StreamURL, StreamTimeFlag];
+      }
 
-      var idList = [//Type(T:Twich Y:Youtube L:Youtube Link)
-        ['Y', 'UCuI5XaO-6VkOEhHao6ij7JA', '', ''],//ぶいすぽっ!【公式】
-
-        ['Y', 'UCyLGcqYs7RsBb3L0SJfzGYA', 'kagasumire', ''],//花芽すみれ
-        ['Y', 'UCiMG6VdScBabPhJ1ZtaVmbw', '', ''],//花芽なずな
-        ['Y', 'UCgTzsBI0DIRopMylJEDqnog', '', ''],//小雀とと
-        ['Y', 'UC5LyYg6cCA4yHEYvtUsir3g', 'uruhaichinose', ''],//一ノ瀬うるは
-        ['Y', 'UCIcAj6WkJ8vZ7DeJVgmeqKw', '963noah', ''],//胡桃のあ
-        ['Y', 'UCnvVG9RbOW3J6Ifqo-zKLiw', '', ''],//兎咲ミミ
-        ['Y', 'UCMp55EbT_ZlqiMS3lCj01BQ', '', ''],//神成きゅぴ
-        ['Y', 'UCF_U2GCKHvDz52jWdizppIA', '', ''],//空澄セナ
-        ['Y', 'UCvUc0m317LWTTPZoBQV479A', '', ''],//橘ひなの
-        ['Y', 'UCurEA8YoqFwimJcAuSHU0MQ', '', ''],//英リサ
-        ['Y', 'UCGWa1dMU_sDCaRQjdabsVgg', '', ''],//如月れん
-        ['Y', 'UCjXBuHmWkieBApgBhDuJMMQ', '', ''],//八雲べに
-        ['Y', 'UCPkKpOHxEDcwmUAnRpIu-Ng', '', ''],//藍沢エマ
-        ['Y', 'UCD5W21JqNMv_tV9nfjvF9sw', '', ''],//紫宮るな
-        ['Y', 'UCIjdfjcSaEgdjwbgjxC3ZWg', '', ''],//猫汰つな
-        ['Y', 'UC61OwuYOVuKkpKnid-43Twg', '', ''],//白波らむね
-        ['Y', 'UCzUNASdzI4PV5SlqtYwAkKQ', '', ''],//小森めと
-        ['Y', 'UCS5l_Y0oMVTjEos2LuyeSZQ', '', ''],//夢野あかり
-        ['Y', 'UCX4WL24YEOUYd7qDsFSLDOw', '', ''],//夜乃くろむ
-        ['Y', '', '', ''],//
-        ['Y', '', '', ''],//
-        ['Y', '', '', ''],//
-        ['Y', '', '', ''],//
-        ['Y', '', '', ''],//
-        ['Y', '', '', ''],//
-        ['Y', '', '', ''],//
-        ['Y', '', '', ''],//
-        ['Y', '', '', ''],//
-        ['Y', '', '', ''],//
-        ['Y', '', '', ''],//
-        ['Y', 'UChLfthKoUV502J7gU9STArg', 'shibuyahal', ''],//渋谷ハル
-        ['Y', 'UCIu-aUArYq_H84dBpCAokMA', '', ''],//白雪レイド
-        ['Y', 'UCbBLqA4HRowpj2JuLrkig5w', '', ''],//或世イヌ
-        ['Y', 'UCuk7vapXKckSw6yCGGDspDg', '', ''],//緋月ゆい
-        ['Y', 'UCZrYHIPsKhYAXqOls2kQQNQ', '', ''],//絲依とい
-        ['Y', 'UC9V3Y3_uzU5e-usObb6IE1w', '', ''],//星川サラ
-        ['Y', 'UCQ0UDLQCjY0rmuxCDE38FGg', '', ''],//夏色まつり
-        ['Y', 'UCgYCMluaLpERsyNXlPOvBtA', 'kamito_jp', ''],//Kamito
-        ['Y', 'UCrWkFUu3DK5XpYBUPDC5uLA', 'kinapoppo', ''],//kinako
-
-        // ['Y','UCOJJ_zlt10fZqZLbGyxJUPA','',''],//トナカイト
-        // ['Y','UCSZNA2IIxtb0rHcy86daUoQ','crkawase',''],//カワセ
-        // ['Y','UC-o-E6I3IC2q8sAoAuM6Umg','',''],//奈羅花
-        // ['Y','UCSF2vv7HFeQHrv1DinGLBLw','',''],//ハセシン
-
-        ['Y', '', '', '']
-      ];
-
-      // console.log(No)
-      // // var channel = channelData.channels.find(ch => parseInt(ch.No) === parseInt(No));
-      // var YID = '';
-      // var TID = '';
-      // var StreamType = '';
-      // var StreamURL = '';
-      // var StreamTimeFlag = 0;
-      // console.log(channelData)
-      // console.log(channelData.channels)
-      // channelData.channels.forEach(channel => {
-      //   if (parseInt(channel.No) == parseInt(No)) {
-      //     YID = channel.YID;
-      //     TID = channel.TID;
-      //     StreamType = channel.StreamType;
-      //     StreamURL = channel.StreamURL;
-      //     StreamTimeFlag = channel.StreamTimeFlag;
-      //     console.log([No, StreamType, StreamURL, StreamTimeFlag])
-      //   }
-      // });
-      // if (StreamURL == '') {
-      //   if (YID != '') { // Youtube探索
-      //     console.log("searchID", YID);
-      //     await fetch("https://script.google.com/macros/s/AKfycbyKwScR7pud64Ga8TpTKQzZtAuN3w_0qCODfXv10xQrJOVwrQmnRdkfYlWHPK1G5bjl/exec?name=" + YID)
-      //       .then(response => {
-      //         return response.json();
-      //       })
-      //       .then(data => {
-      //         StreamType = 'Y';
-      //         StreamURL = data.name.id;
-      //         StreamTimeFlag = data.name.timeflag;
-
-      //         // 発見したので探索終了
-      //         if (StreamURL != "") {
-      //           console.log("searchResult", StreamType, YID, StreamURL, StreamTimeFlag);
-      //           return [StreamType, StreamURL, StreamTimeFlag];
-      //         }
-      //       })
-      //       .catch(error => {
-      //         console.log("失敗しました");
-      //       });
-      //   }
-      //   if (TID != '') { // Twitch探索
-      //     StreamType = 'T';
-      //     StreamURL = TID;
-      //     console.log("searchTwitch", StreamURL);
-      //   } else { // 未登録
-      //     StreamType = 'Y';
-      //     StreamURL = "";
-      //   }
-      //   return [StreamType, StreamURL, StreamTimeFlag];
-
-      // } else {
-      //   console.log("alreadyResult", StreamType, StreamURL, StreamTimeFlag);
-      //   return [StreamType, StreamURL, StreamTimeFlag];
-      // }
-
-
-      var No2 = parseInt(No);
-      var vType = 'Y';
-      var vURL = idList[No2][3];
-      var vTimeFlag = 0;
-
-      if (vURL == '') {
-
-        if ((idList[No2][0] == 'Y') && (idList[No2][1] != '')) {//Youtube
-          var chID = idList[No2][1];
-          console.log("searchID", chID);
-          await fetch("https://script.google.com/macros/s/AKfycbyKwScR7pud64Ga8TpTKQzZtAuN3w_0qCODfXv10xQrJOVwrQmnRdkfYlWHPK1G5bjl/exec?name=" + chID)
+      if (StreamURL == '') {
+        if (YID != '') { // Youtube探索
+          console.log("searchID", YID);
+          await fetch("https://script.google.com/macros/s/AKfycbyKwScR7pud64Ga8TpTKQzZtAuN3w_0qCODfXv10xQrJOVwrQmnRdkfYlWHPK1G5bjl/exec?name=" + YID)
             .then(response => {
               return response.json();
             })
             .then(data => {
-              vType = 'Y';
-              //vURL = data.name;
-              vURL = data.name.id;
-              vTimeFlag = data.name.timeflag;
-
-              if ((vURL == '') && (idList[No2][2] != '')) {
-                vType = "T";
-                vURL = idList[No2][2];
-                //オフラインチェックをいれたい
-              }
-              console.log("searchResult", vType, chID, vURL, vTimeFlag);
-
+              StreamType = 'Y';
+              StreamURL = data.name.id;
+              StreamTimeFlag = data.name.timeflag;
+              console.log("searchResult", StreamType, YID, StreamURL, StreamTimeFlag);
             })
             .catch(error => {
               console.log("失敗しました");
             });
-        } else if (idList[No2][2] != '') {//Twitch
-          console.log("searchTwitch", idList[No2][2]);
-          vType = 'T';
-          vURL = idList[No2][2];
-          //オフラインチェックをいれたい
-        } else {
-          //console.log("NOTsearch");
-          vType = 'Y';
-          vURL = "";
         }
-
+        if ((StreamURL == '') && (TID != '')) { // Twitch探索
+          StreamType = 'T';
+          StreamURL = TID;
+          console.log("searchTwitch", StreamURL);
+        }
       }
-      console.log("return", vType, vURL);
-      return [vType, vURL, vTimeFlag];
+      return [StreamType, StreamURL, StreamTimeFlag];
     }
     async function openLink(key) {
 
-      console.log("openLink", key)
       let result = await getLink(key.replace("icon", ""));
-      console.log(result)
       let type = result[0];
       let text = result[1];
-      console.log("openlink", type, text);
+      console.log("openlink", key, type, text);
       if (text == '') {
         showAlert('視聴失敗', '生配信が見つかりませんでした');
         return;
@@ -718,8 +569,6 @@
 
       //この時点でurlにiNoが存在するなら、cleared[0]じゃなくて該当する窓を指定する（違う場合の指定もここで統一？）
       //URLの更新はかけない方が安全では？（下の処理）
-      //type = "M";
-      //text = "10115448";
 
       //枠追加
       if (type == "Y") {//Youtube
@@ -743,13 +592,6 @@
         } catch (e) { }
         var wNo = document.getElementsByClassName("cleared")[0].id;
         document.getElementsByClassName("cleared")[0].classList.remove("cleared");
-
-      } else {//Mildom
-        document.getElementsByClassName("cleared")[0].getElementsByClassName("video")[0].classList.remove("no-content");
-        //document.getElementsByClassName("cleared")[0].getElementsByClassName("video")[0].src="https://www.mildom.com/"+text+"&from=pcShare";//+url.hostname;
-        document.getElementsByClassName("cleared")[0].getElementsByClassName("video")[0].src = "https://www.mildom.com/10115448?ts=1652186403023&from=pcShare";//+url.hostname;
-        var wNo = document.getElementsByClassName("cleared")[0].id;
-        document.getElementsByClassName("cleared")[0].classList.remove("cleared");
       }
 
       var current = new URL(window.location);
@@ -769,7 +611,6 @@
       event.preventDefault();
       event.dataTransfer.dropEffect = 'link';
       console.log(event);
-
     }
     function onDrop(event) {
       event.preventDefault();
@@ -842,12 +683,6 @@
           let result = await getLink(key);
           type = result[0];
           text = result[1];
-          // //ここで空っぽの場合continue?→それをやるとパラメータ消すのめんどくさい
-          // if(text == ''){
-          //   showAlert('視聴失敗','生配信が見つかりませんでした');
-          //   continue;
-          // }
-          // console.log("rs",result,type,text);
           document.getElementById(key).style.border = "solid 3px rgba(177,29,44,1)";
           //document.getElementById(key).style.opacity = 0.8;
         }
@@ -855,7 +690,6 @@
         var target = document.getElementById(key);
         //枠追加
         if (type == "Y") {//Youtube
-
           target.getElementsByClassName("video")[0].classList.remove("no-content");
           target.getElementsByClassName("video")[0].src = "https://www.youtube.com/embed/" + text + "?autoplay=1";
           try {
@@ -864,16 +698,12 @@
           } catch (e) { }
           var wNo = target.id;
           target.classList.remove("cleared");
-
         } else if (type == "T") {//Twitch
-
           target.getElementsByClassName("video")[0].classList.remove("no-content");
           target.getElementsByClassName("video")[0].src = "https://player.twitch.tv/?channel=" + text + "&parent=" + url.hostname;
           var wNo = target.id;
           target.classList.remove("cleared");
-
         }
-
       });
     }
 
@@ -882,89 +712,6 @@
     restartWindow();
     // CheckStream();
     //showAlert('メンテナンス中','生配信リンクの自動取得機能が使えません');
-
-    //ここからバナーとアラート・ポップアップ
-    /*
-    -----使い方----
-    banner(title,text [,detail]);
-      >>バナーを使う（バナーは10秒で自動的に消える）
-        title(String) :バナーのタイトル
-        text(String)  :バナーの内容、タグの使用可能
-        detail(String):省略可、バナータッチ時に表示するポップアップの本文、タグの使用可能.
-
-        Ex.)　banner("test","これはテスト","これはテストです。");
-
-    showAlert(title,txt[,popup[,fn])
-      >>ポップアップを使う。Okを押さなくても100秒後に閉じる
-      title(String) :ポップアップのタイトル
-      txt(String)   :バナーの内容、タグの使用可能
-      popup(String) :省略可、デフォルトはhidden.
-
-        -hidden  デフォルト値. 100秒で自動的に閉じるアラート。OKボタンのみある。fnを実行する。
-        -noClose 自動的には閉じないアラート。OKボタンのみある。fnを実行する。
-        -その他   自動的に閉じないコンファーム。キャンセルを押すと何もしない、OKを押すとfnを実行する
-
-      fn(String)    :省略可。関数名もしくは function(){} を直接記述。OKを押した後に実行される。' or " で囲む必要あり。
-
-      Ex.)　showAlert('テストです','このコンファームはテストです。','confirm','banner("やったー","コンファームが無事使えたよ！")');
-            showAlert('テスト','自動的に消えます。');
-
-    */
-    //ここからバナー
-    function banner(title, text, detail = text) {
-      var div = document.createElement('div');
-      div.className = "banner";
-      div.setAttribute("onclick", "this.style.animation='animation-banner-up 0.5s';showAlert('" + title + "','" + detail + "','noClose')");
-      var h1 = document.createElement('h2');
-      h1.innerHTML = title;
-      var p = document.createElement('p');
-      p.innerHTML = text;
-      div.appendChild(h1);
-      div.appendChild(p);
-      document.getElementsByTagName('body')[0].appendChild(div);
-    }
-
-    //ここからアラート
-    function showAlert(title, txt, popup = "hidden", fn = function () { }) {
-      //タイトル、本文、(デフォルト=10秒閉じ,noClose=自動で閉じないアラート,その他＝confirm),関数ー＞""で囲む,Okayに渡される
-      var div1 = document.createElement('div');
-      div1.className = "bgAlert";
-      var div2 = document.createElement('div');
-      div2.className = "alert";
-      var h2 = document.createElement('h2');
-      h2.innerHTML = title;
-      var p = document.createElement('p');
-      p.innerHTML = txt;
-      var time = document.createElement('div');
-      time.innerHTML = "Auto Close : 10 sec.";
-      var cancel = document.createElement('button');
-      cancel.innerHTML = "キャンセル";
-      cancel.setAttribute("onclick", "hideConfirm(this);");
-      if (popup == ("hidden")) cancel.style.visibility = "hidden";
-      if (popup == ("noClose")) cancel.style.visibility = "hidden";
-      var okay = document.createElement('button');
-      okay.style.background = "#5566FF";
-      //
-      okay.setAttribute("onclick", "hideConfirm(this," + fn + ");");
-      okay.innerHTML = "OK";
-      div2.appendChild(h2);
-      div2.appendChild(p);
-      div2.appendChild(cancel);
-      div2.appendChild(okay);
-      div1.appendChild(div2);
-      document.getElementsByTagName('body')[0].appendChild(div1);
-      if (popup == "hidden") {
-        div2.appendChild(time);
-        console.log(time.innerHTML.replace(/[^0-9]/g, ""));
-        var timeout = setInterval(function (time) { time.innerHTML = "Auto Close : " + (parseInt(time.innerHTML.replace(/[^0-9]/g, "")) - 1) + " sec."; }, 1000, time);
-        setTimeout(function (div1, timeout) { clearInterval(timeout); console.log(div1); div1.remove(div1); }, 11000, div1, timeout);
-      }
-    }
-    function hideConfirm(obj, fc = function () { }) {
-      obj.parentNode.parentNode.style.display = 'none';
-      fc();
-    }
-
 
   </script>
 </body>

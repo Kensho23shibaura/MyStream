@@ -202,7 +202,7 @@
         },
         {
             "No": "20",
-            "Name": "こかげ",
+            "Name": "紡木こかげ",
             "Icon": "images/member20.jpg",
             "YID": "UC-WX1CXssCtCtc2TNIRnJzg",
             "TID": "",
@@ -212,9 +212,139 @@
         },
         {
             "No": "21",
-            "Name": "ゆうひ",
+            "Name": "千燈ゆうひ",
             "Icon": "images/member21.jpg",
             "YID": "UCuDY3ibSP2MFRgf7eo3cojg",
+            "TID": "",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "31",
+            "Name": "渋谷ハル",
+            "Icon": "images/streamer01.jpg",
+            "YID": "UChLfthKoUV502J7gU9STArg",
+            "TID": "shibuyahal",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "32",
+            "Name": "白雪レイド",
+            "Icon": "images/streamer02.jpg",
+            "YID": "UCIu-aUArYq_H84dBpCAokMA",
+            "TID": "",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "33",
+            "Name": "或世イヌ",
+            "Icon": "images/streamer03.jpg",
+            "YID": "UCbBLqA4HRowpj2JuLrkig5w",
+            "TID": "",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "34",
+            "Name": "緋月ゆい",
+            "Icon": "images/streamer04.jpg",
+            "YID": "UCuk7vapXKckSw6yCGGDspDg",
+            "TID": "",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "35",
+            "Name": "絲依とい",
+            "Icon": "images/streamer05.jpg",
+            "YID": "UCZrYHIPsKhYAXqOls2kQQNQ",
+            "TID": "",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "36",
+            "Name": "星川サラ",
+            "Icon": "images/streamer06.jpg",
+            "YID": "UC9V3Y3_uzU5e-usObb6IE1w",
+            "TID": "",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "37",
+            "Name": "夏色まつり",
+            "Icon": "images/streamer07.jpg",
+            "YID": "UCQ0UDLQCjY0rmuxCDE38FGg",
+            "TID": "",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "38",
+            "Name": "Kamito",
+            "Icon": "images/streamer08.jpg",
+            "YID": "UCgYCMluaLpERsyNXlPOvBtA",
+            "TID": "kamito_jp",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "39",
+            "Name": "kinako",
+            "Icon": "images/streamer09.jpg",
+            "YID": "UCrWkFUu3DK5XpYBUPDC5uLA",
+            "TID": "kinapoppo",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "40",
+            "Name": "トナカイト",
+            "Icon": "",
+            "YID": "UCOJJ_zlt10fZqZLbGyxJUPA",
+            "TID": "",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "41",
+            "Name": "カワセ",
+            "Icon": "",
+            "YID": "UCSZNA2IIxtb0rHcy86daUoQ",
+            "TID": "crkawase",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "42",
+            "Name": "奈羅花",
+            "Icon": "",
+            "YID": "UC-o-E6I3IC2q8sAoAuM6Umg",
+            "TID": "",
+            "StreamType": "",
+            "StreamURL": "",
+            "StreamTimeFlag": 0
+        },
+        {
+            "No": "43",
+            "Name": "ハセシン",
+            "Icon": "",
+            "YID": "UCSF2vv7HFeQHrv1DinGLBLw",
             "TID": "",
             "StreamType": "",
             "StreamURL": "",

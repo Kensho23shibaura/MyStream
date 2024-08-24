@@ -546,159 +546,159 @@
     }
     async function getLink(No) {
 
-      // var idList = [//Type(T:Twich Y:Youtube L:Youtube Link)
-      //   ['Y','UCuI5XaO-6VkOEhHao6ij7JA','',''],//ぶいすぽっ!【公式】
+      var idList = [//Type(T:Twich Y:Youtube L:Youtube Link)
+        ['Y', 'UCuI5XaO-6VkOEhHao6ij7JA', '', ''],//ぶいすぽっ!【公式】
 
-      //   ['Y','UCyLGcqYs7RsBb3L0SJfzGYA','kagasumire',''],//花芽すみれ
-      //   ['Y','UCiMG6VdScBabPhJ1ZtaVmbw','',''],//花芽なずな
-      //   ['Y','UCgTzsBI0DIRopMylJEDqnog','',''],//小雀とと
-      //   ['Y','UC5LyYg6cCA4yHEYvtUsir3g','uruhaichinose',''],//一ノ瀬うるは
-      //   ['Y','UCIcAj6WkJ8vZ7DeJVgmeqKw','963noah',''],//胡桃のあ
-      //   ['Y','UCnvVG9RbOW3J6Ifqo-zKLiw','',''],//兎咲ミミ
-      //   ['Y','UCMp55EbT_ZlqiMS3lCj01BQ','',''],//神成きゅぴ
-      //   ['Y','UCF_U2GCKHvDz52jWdizppIA','',''],//空澄セナ
-      //   ['Y','UCvUc0m317LWTTPZoBQV479A','',''],//橘ひなの
-      //   ['Y','UCurEA8YoqFwimJcAuSHU0MQ','',''],//英リサ
-      //   ['Y','UCGWa1dMU_sDCaRQjdabsVgg','',''],//如月れん
-      //   ['Y','UCjXBuHmWkieBApgBhDuJMMQ','',''],//八雲べに
-      //   ['Y','UCPkKpOHxEDcwmUAnRpIu-Ng','',''],//藍沢エマ
-      //   ['Y','UCD5W21JqNMv_tV9nfjvF9sw','',''],//紫宮るな
-      //   ['Y','UCIjdfjcSaEgdjwbgjxC3ZWg','',''],//猫汰つな
-      //   ['Y','UC61OwuYOVuKkpKnid-43Twg','',''],//白波らむね
-      //   ['Y','UCzUNASdzI4PV5SlqtYwAkKQ','',''],//小森めと
-      //   ['Y','UCS5l_Y0oMVTjEos2LuyeSZQ','',''],//夢野あかり
-      //   ['Y','UCX4WL24YEOUYd7qDsFSLDOw','',''],//夜乃くろむ
-      //   ['Y','','',''],//
-      //   ['Y','','',''],//
-      //   ['Y','','',''],//
-      //   ['Y','','',''],//
-      //   ['Y','','',''],//
-      //   ['Y','','',''],//
-      //   ['Y','','',''],//
-      //   ['Y','','',''],//
-      //   ['Y','','',''],//
-      //   ['Y','','',''],//
-      //   ['Y','','',''],//
-      //   ['Y','UChLfthKoUV502J7gU9STArg','shibuyahal',''],//渋谷ハル
-      //   ['Y','UCIu-aUArYq_H84dBpCAokMA','',''],//白雪レイド
-      //   ['Y','UCbBLqA4HRowpj2JuLrkig5w','',''],//或世イヌ
-      //   ['Y','UCuk7vapXKckSw6yCGGDspDg','',''],//緋月ゆい
-      //   ['Y','UCZrYHIPsKhYAXqOls2kQQNQ','',''],//絲依とい
-      //   ['Y','UC9V3Y3_uzU5e-usObb6IE1w','',''],//星川サラ
-      //   ['Y','UCQ0UDLQCjY0rmuxCDE38FGg','',''],//夏色まつり
-      //   ['Y','UCgYCMluaLpERsyNXlPOvBtA','kamito_jp',''],//Kamito
-      //   ['Y','UCrWkFUu3DK5XpYBUPDC5uLA','kinapoppo',''],//kinako
+        ['Y', 'UCyLGcqYs7RsBb3L0SJfzGYA', 'kagasumire', ''],//花芽すみれ
+        ['Y', 'UCiMG6VdScBabPhJ1ZtaVmbw', '', ''],//花芽なずな
+        ['Y', 'UCgTzsBI0DIRopMylJEDqnog', '', ''],//小雀とと
+        ['Y', 'UC5LyYg6cCA4yHEYvtUsir3g', 'uruhaichinose', ''],//一ノ瀬うるは
+        ['Y', 'UCIcAj6WkJ8vZ7DeJVgmeqKw', '963noah', ''],//胡桃のあ
+        ['Y', 'UCnvVG9RbOW3J6Ifqo-zKLiw', '', ''],//兎咲ミミ
+        ['Y', 'UCMp55EbT_ZlqiMS3lCj01BQ', '', ''],//神成きゅぴ
+        ['Y', 'UCF_U2GCKHvDz52jWdizppIA', '', ''],//空澄セナ
+        ['Y', 'UCvUc0m317LWTTPZoBQV479A', '', ''],//橘ひなの
+        ['Y', 'UCurEA8YoqFwimJcAuSHU0MQ', '', ''],//英リサ
+        ['Y', 'UCGWa1dMU_sDCaRQjdabsVgg', '', ''],//如月れん
+        ['Y', 'UCjXBuHmWkieBApgBhDuJMMQ', '', ''],//八雲べに
+        ['Y', 'UCPkKpOHxEDcwmUAnRpIu-Ng', '', ''],//藍沢エマ
+        ['Y', 'UCD5W21JqNMv_tV9nfjvF9sw', '', ''],//紫宮るな
+        ['Y', 'UCIjdfjcSaEgdjwbgjxC3ZWg', '', ''],//猫汰つな
+        ['Y', 'UC61OwuYOVuKkpKnid-43Twg', '', ''],//白波らむね
+        ['Y', 'UCzUNASdzI4PV5SlqtYwAkKQ', '', ''],//小森めと
+        ['Y', 'UCS5l_Y0oMVTjEos2LuyeSZQ', '', ''],//夢野あかり
+        ['Y', 'UCX4WL24YEOUYd7qDsFSLDOw', '', ''],//夜乃くろむ
+        ['Y', '', '', ''],//
+        ['Y', '', '', ''],//
+        ['Y', '', '', ''],//
+        ['Y', '', '', ''],//
+        ['Y', '', '', ''],//
+        ['Y', '', '', ''],//
+        ['Y', '', '', ''],//
+        ['Y', '', '', ''],//
+        ['Y', '', '', ''],//
+        ['Y', '', '', ''],//
+        ['Y', '', '', ''],//
+        ['Y', 'UChLfthKoUV502J7gU9STArg', 'shibuyahal', ''],//渋谷ハル
+        ['Y', 'UCIu-aUArYq_H84dBpCAokMA', '', ''],//白雪レイド
+        ['Y', 'UCbBLqA4HRowpj2JuLrkig5w', '', ''],//或世イヌ
+        ['Y', 'UCuk7vapXKckSw6yCGGDspDg', '', ''],//緋月ゆい
+        ['Y', 'UCZrYHIPsKhYAXqOls2kQQNQ', '', ''],//絲依とい
+        ['Y', 'UC9V3Y3_uzU5e-usObb6IE1w', '', ''],//星川サラ
+        ['Y', 'UCQ0UDLQCjY0rmuxCDE38FGg', '', ''],//夏色まつり
+        ['Y', 'UCgYCMluaLpERsyNXlPOvBtA', 'kamito_jp', ''],//Kamito
+        ['Y', 'UCrWkFUu3DK5XpYBUPDC5uLA', 'kinapoppo', ''],//kinako
 
-      //   // ['Y','UCOJJ_zlt10fZqZLbGyxJUPA','',''],//トナカイト
-      //   // ['Y','UCSZNA2IIxtb0rHcy86daUoQ','crkawase',''],//カワセ
-      //   // ['Y','UC-o-E6I3IC2q8sAoAuM6Umg','',''],//奈羅花
-      //   // ['Y','UCSF2vv7HFeQHrv1DinGLBLw','',''],//ハセシン
+        // ['Y','UCOJJ_zlt10fZqZLbGyxJUPA','',''],//トナカイト
+        // ['Y','UCSZNA2IIxtb0rHcy86daUoQ','crkawase',''],//カワセ
+        // ['Y','UC-o-E6I3IC2q8sAoAuM6Umg','',''],//奈羅花
+        // ['Y','UCSF2vv7HFeQHrv1DinGLBLw','',''],//ハセシン
 
-      //   ['Y','','','']
-      // ];
+        ['Y', '', '', '']
+      ];
 
-      console.log(No)
-      // var channel = channelData.channels.find(ch => parseInt(ch.No) === parseInt(No));
-      var YID = '';
-      var TID = '';
-      var StreamType = '';
-      var StreamURL = '';
-      var StreamTimeFlag = 0;
-      console.log(channelData)
-      console.log(channelData.channels)
-      channelData.channels.forEach(channel => {
-        if (parseInt(channel.No) == parseInt(No)) {
-          YID = channel.YID;
-          TID = channel.TID;
-          StreamType = channel.StreamType;
-          StreamURL = channel.StreamURL;
-          StreamTimeFlag = channel.StreamTimeFlag;
-          console.log([No, StreamType, StreamURL, StreamTimeFlag])
-        }
-      });
-      if (StreamURL == '') {
-        if (YID != '') { // Youtube探索
-          console.log("searchID", YID);
-          await fetch("https://script.google.com/macros/s/AKfycbyKwScR7pud64Ga8TpTKQzZtAuN3w_0qCODfXv10xQrJOVwrQmnRdkfYlWHPK1G5bjl/exec?name=" + YID)
-            .then(response => {
-              return response.json();
-            })
-            .then(data => {
-              StreamType = 'Y';
-              StreamURL = data.name.id;
-              StreamTimeFlag = data.name.timeflag;
-
-              // 発見したので探索終了
-              if (StreamURL != "") {
-                console.log("searchResult", StreamType, YID, StreamURL, StreamTimeFlag);
-                return [StreamType, StreamURL, StreamTimeFlag];
-              }
-            })
-            .catch(error => {
-              console.log("失敗しました");
-            });
-        }
-        if (TID != '') { // Twitch探索
-          StreamType = 'T';
-          StreamURL = TID;
-          console.log("searchTwitch", StreamURL);
-        } else { // 未登録
-          StreamType = 'Y';
-          StreamURL = "";
-        }
-        return [StreamType, StreamURL, StreamTimeFlag];
-
-      } else {
-        console.log("alreadyResult", StreamType, StreamURL, StreamTimeFlag);
-        return [StreamType, StreamURL, StreamTimeFlag];
-      }
-
-
-      // var No2 = parseInt(No);
-      // var vType = 'Y';
-      // var vURL = idList[No2][3];
-      // var vTimeFlag = 0;
-
-      // if (vURL == '') {
-
-      //   if ((idList[No2][0] == 'Y') && (idList[No2][1] != '')) {//Youtube
-      //     var chID = idList[No2][1];
-      //     console.log("searchID", chID);
-      //     await fetch("https://script.google.com/macros/s/AKfycbyKwScR7pud64Ga8TpTKQzZtAuN3w_0qCODfXv10xQrJOVwrQmnRdkfYlWHPK1G5bjl/exec?name=" + chID)
+      // console.log(No)
+      // // var channel = channelData.channels.find(ch => parseInt(ch.No) === parseInt(No));
+      // var YID = '';
+      // var TID = '';
+      // var StreamType = '';
+      // var StreamURL = '';
+      // var StreamTimeFlag = 0;
+      // console.log(channelData)
+      // console.log(channelData.channels)
+      // channelData.channels.forEach(channel => {
+      //   if (parseInt(channel.No) == parseInt(No)) {
+      //     YID = channel.YID;
+      //     TID = channel.TID;
+      //     StreamType = channel.StreamType;
+      //     StreamURL = channel.StreamURL;
+      //     StreamTimeFlag = channel.StreamTimeFlag;
+      //     console.log([No, StreamType, StreamURL, StreamTimeFlag])
+      //   }
+      // });
+      // if (StreamURL == '') {
+      //   if (YID != '') { // Youtube探索
+      //     console.log("searchID", YID);
+      //     await fetch("https://script.google.com/macros/s/AKfycbyKwScR7pud64Ga8TpTKQzZtAuN3w_0qCODfXv10xQrJOVwrQmnRdkfYlWHPK1G5bjl/exec?name=" + YID)
       //       .then(response => {
       //         return response.json();
       //       })
       //       .then(data => {
-      //         vType = 'Y';
-      //         //vURL = data.name;
-      //         vURL = data.name.id;
-      //         vTimeFlag = data.name.timeflag;
+      //         StreamType = 'Y';
+      //         StreamURL = data.name.id;
+      //         StreamTimeFlag = data.name.timeflag;
 
-      //         if ((vURL == '') && (idList[No2][2] != '')) {
-      //           vType = "T";
-      //           vURL = idList[No2][2];
-      //           //オフラインチェックをいれたい
+      //         // 発見したので探索終了
+      //         if (StreamURL != "") {
+      //           console.log("searchResult", StreamType, YID, StreamURL, StreamTimeFlag);
+      //           return [StreamType, StreamURL, StreamTimeFlag];
       //         }
-      //         console.log("searchResult", vType, chID, vURL, vTimeFlag);
-
       //       })
       //       .catch(error => {
       //         console.log("失敗しました");
       //       });
-      //   } else if (idList[No2][2] != '') {//Twitch
-      //     console.log("searchTwitch", idList[No2][2]);
-      //     vType = 'T';
-      //     vURL = idList[No2][2];
-      //     //オフラインチェックをいれたい
-      //   } else {
-      //     //console.log("NOTsearch");
-      //     vType = 'Y';
-      //     vURL = "";
       //   }
+      //   if (TID != '') { // Twitch探索
+      //     StreamType = 'T';
+      //     StreamURL = TID;
+      //     console.log("searchTwitch", StreamURL);
+      //   } else { // 未登録
+      //     StreamType = 'Y';
+      //     StreamURL = "";
+      //   }
+      //   return [StreamType, StreamURL, StreamTimeFlag];
 
+      // } else {
+      //   console.log("alreadyResult", StreamType, StreamURL, StreamTimeFlag);
+      //   return [StreamType, StreamURL, StreamTimeFlag];
       // }
-      // console.log("return", vType, vURL);
-      // return [vType, vURL, vTimeFlag];
+
+
+      var No2 = parseInt(No);
+      var vType = 'Y';
+      var vURL = idList[No2][3];
+      var vTimeFlag = 0;
+
+      if (vURL == '') {
+
+        if ((idList[No2][0] == 'Y') && (idList[No2][1] != '')) {//Youtube
+          var chID = idList[No2][1];
+          console.log("searchID", chID);
+          await fetch("https://script.google.com/macros/s/AKfycbyKwScR7pud64Ga8TpTKQzZtAuN3w_0qCODfXv10xQrJOVwrQmnRdkfYlWHPK1G5bjl/exec?name=" + chID)
+            .then(response => {
+              return response.json();
+            })
+            .then(data => {
+              vType = 'Y';
+              //vURL = data.name;
+              vURL = data.name.id;
+              vTimeFlag = data.name.timeflag;
+
+              if ((vURL == '') && (idList[No2][2] != '')) {
+                vType = "T";
+                vURL = idList[No2][2];
+                //オフラインチェックをいれたい
+              }
+              console.log("searchResult", vType, chID, vURL, vTimeFlag);
+
+            })
+            .catch(error => {
+              console.log("失敗しました");
+            });
+        } else if (idList[No2][2] != '') {//Twitch
+          console.log("searchTwitch", idList[No2][2]);
+          vType = 'T';
+          vURL = idList[No2][2];
+          //オフラインチェックをいれたい
+        } else {
+          //console.log("NOTsearch");
+          vType = 'Y';
+          vURL = "";
+        }
+
+      }
+      console.log("return", vType, vURL);
+      return [vType, vURL, vTimeFlag];
     }
     async function openLink(key) {
 

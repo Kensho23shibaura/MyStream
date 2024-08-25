@@ -116,21 +116,15 @@
       <img src="select/03A.png" class="select" id="select03A" title="03A" onclick="selectL('03A')">
       <img src="select/03B.png" class="select" id="select03B" title="03B" onclick="selectL('03B')"><br>
       <img src="select/04A.png" class="select" id="select04A" title="04A" onclick="selectL('04A')">
-      <img src="select/04B.png" class="select" id="select04B" title="04B" onclick="selectL('04B')">
-      <img src="select/04C.png" class="select" id="select04C" title="04C" onclick="selectL('04C')"><br>
+      <img src="select/04B.png" class="select" id="select04B" title="04B" onclick="selectL('04B')"><br>
       <img src="select/05A.png" class="select" id="select05A" title="05A" onclick="selectL('05A')">
-      <img src="select/05B.png" class="select" id="select05B" title="05B" onclick="selectL('05B')">
-      <img src="select/05C.png" class="select" id="select05C" title="05C" onclick="selectL('05C')"><br>
-      <img src="select/06A.png" class="select" id="select06A" title="06A" onclick="selectL('06A')">
-      <img src="select/06B.png" class="select" id="select06B" title="06B" onclick="selectL('06B')">
-      <img src="select/06C.png" class="select" id="select06C" title="06C" onclick="selectL('06C')"><br>
-      <img src="select/07A.png" class="select" id="select07A" title="07A" onclick="selectL('07A')"><br>
-      <img src="select/08A.png" class="select" id="select08A" title="08A" onclick="selectL('08A')">
-      <img src="select/08B.png" class="select" id="select08B" title="08B" onclick="selectL('08B')"><br>
+      <img src="images/streamer01.jpg" class="select" id="select05B" title="05B" onclick="selectL('05B')"><br>
+      <img src="images/streamer01.jpg" class="select" id="select06A" title="06A" onclick="selectL('06A')"><br>
+      <img src="images/streamer01.jpg" class="select" id="select07A" title="07A" onclick="selectL('07A')"><br>
+      <img src="select/08A.png" class="select" id="select08A" title="08A" onclick="selectL('08A')"><br>
       <img src="select/09A.png" class="select" id="select09A" title="09A" onclick="selectL('09A')">
       <img src="select/09B.png" class="select" id="select09B" title="09B" onclick="selectL('09B')"><br>
       <img src="select/10A.png" class="select" id="select10A" title="10A" onclick="selectL('10A')"><br>
-      <img src="select/12A.png" class="select" id="select12A" title="12A" onclick="selectL('12A')"><br>
       <img src="select/16A.png" class="select" id="select16A" title="16A" onclick="selectL('16A')"><br>
       <button type="button" class="Check ButtonL" onclick="CheckStream()">配信チェック</button><br>
       <button type="button" class="Slide ButtonL" onclick="SlideWindow()">空窓スライド</button><br>
@@ -148,7 +142,6 @@
         .then(response => response.json())
         .then(jsonData => {
           channelData = jsonData; // ローカル変数にデータを格納
-          console.log(channelData)
           const iconArea = document.querySelector('.iconArea');
           channelData.channels.forEach(channel => {
             if (channel.No >= 1 && channel.No <= 38) {
@@ -160,7 +153,7 @@
               img.src = channel.Icon;
               img.className = 'icon';
               img.id = `icon${channel.No}`;
-              img.setAttribute('onclick', `openLink('${channel.No}')`);
+              img.setAttribute('onclick', `openLink('icon${channel.No}')`);
 
               div.appendChild(img);
               iconArea.appendChild(div);
@@ -256,259 +249,71 @@
       showAlert('更新情報', '特になし', 'noClose');
     }
     function selectL(Lay) {
-
       var current = new URL(window.location);
       current.searchParams.set("layout", Lay);
       window.history.replaceState('', '', current);
 
-      //全ての窓の余計なクラスを削除
       const all = ["w01", "w02", "w03", "w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-      all.forEach((wNo, index) => {
-        if (document.getElementById(wNo).classList.contains('Non-Display') == true) {
-          document.getElementById(wNo).className = "story cleared";
-        } else if (document.getElementById(wNo).classList.contains('cleared') == true) {
-          document.getElementById(wNo).className = "story cleared";
+      all.forEach(wNo => {
+        const element = document.getElementById(wNo);
+        if (element.classList.contains('Non-Display') || element.classList.contains('cleared')) {
+          element.className = "story cleared";
         } else {
-          document.getElementById(wNo).className = "story";
+          element.className = "story";
         }
-        document.getElementById("ReplaceArea").className = "grid6R7C";
       });
 
-      let arr = [];
-      let now = [];
+      document.getElementById("ReplaceArea").className = "grid6R7C";
 
-      switch (Lay) {
-        case "01A"://6R7C_ok
-          document.getElementById("w01").classList.add("WE01", "VSE");
-          arr = ["w02", "w03", "w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "01B"://6R7C_ok
-          document.getElementById("w01").classList.add("WD01C", "VSD", "CSD");
-          arr = ["w02", "w03", "w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "02A"://6R7C_ok
+      const layoutConfig = {
+        "01A": { addClasses: [["w01", ["WE01", "VSE"]]], hideElements: ["w02", "w03", "w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "01B": { addClasses: [["w01", ["WD01C", "VSD", "CSD"]]], hideElements: ["w02", "w03", "w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "02A": { addClasses: [["w01", ["WC01C", "VSC", "CSC"]], ["w02", ["WC03C", "VSC", "CSC"]]], hideElements: ["w03", "w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "03A": { addClasses: [["w01", ["WB01C", "VSB", "CSB"]], ["w02", ["WB04C", "VSB", "CSB"]], ["w03", ["WB07C", "VSB", "CSB"]]], hideElements: ["w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "03B": { addClasses: [["w01", ["WC01C", "VSC", "CSC"]], ["w02", ["WC03", "VSC"]], ["w03", ["WC04", "VSC"]]], hideElements: ["w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "04A": { addClasses: [["w01", ["WA01C3", "VSA", "CSD"]], ["w02", ["WA05C3", "VSA", "CSD"]], ["w03", ["WA09C3", "VSA", "CSD"]], ["w04", ["WA13C3", "VSA", "CSD"]]], hideElements: ["w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "04B": { addClasses: [["w01", ["WC01", "VSC"]], ["w02", ["WC02", "VSC"]], ["w03", ["WC03", "VSC"]], ["w04", ["WC04", "VSC"]]], hideElements: ["w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "05A": { addClasses: [["w01", ["WB01C", "VSB", "CSB"]], ["w02", ["WB04C", "VSB", "CSB"]], ["w03", ["WB07", "VSB"]], ["w04", ["WB08", "VSB"]], ["w05", ["WB09", "VSB"]]], hideElements: ["w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "05B": { addClasses: [["w01", ["WC01C", "VSC", "CSC"]], ["w02", ["WA09C1", "VSA", "CSA"]], ["w03", ["WA11C1", "VSA", "CSA"]], ["w04", ["WA13C1", "VSA", "CSA"]], ["w05", ["WA15C1", "VSA", "CSA"]]], hideElements: ["w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "06A": { addClasses: [["w01", ["WC01", "VSC"]], ["w02", ["WC02", "VSC"]], ["w03", ["WA09C1", "VSA", "CSA"]], ["w04", ["WA11C1", "VSA", "CSA"]], ["w05", ["WA13C1", "VSA", "CSA"]], ["w06", ["WA15C1", "VSA", "CSA"]]], hideElements: ["w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "07A": { addClasses: [["w01", ["WB01C", "VSB", "CSB"]], ["w02", ["WB04", "VSB"]], ["w03", ["WB05", "VSB"]], ["w04", ["WB06", "VSB"]], ["w05", ["WB07", "VSB"]], ["w06", ["WB08", "VSB"]], ["w07", ["WB09", "VSB"]]], hideElements: ["w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "08A": { addClasses: [["w01", ["WA01C1", "VSA", "CSA"]], ["w02", ["WA03C1", "VSA", "CSA"]], ["w03", ["WA05C1", "VSA", "CSA"]], ["w04", ["WA07C1", "VSA", "CSA"]], ["w05", ["WA09C1", "VSA", "CSA"]], ["w06", ["WA11C1", "VSA", "CSA"]], ["w07", ["WA13C1", "VSA", "CSA"]], ["w08", ["WA15C1", "VSA", "CSA"]]], hideElements: ["w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "09A": { addClasses: [["w01", ["WC01C", "VSC", "CSC"]], ["w02", ["WA09", "VSA"]], ["w03", ["WA10", "VSA"]], ["w04", ["WA11", "VSA"]], ["w05", ["WA12", "VSA"]], ["w06", ["WA13", "VSA"]], ["w07", ["WA14", "VSA"]], ["w08", ["WA15", "VSA"]], ["w09", ["WA16", "VSA"]]], hideElements: ["w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "09B": { addClasses: [["w01", ["WB01", "VSB"]], ["w02", ["WB02", "VSB"]], ["w03", ["WB03", "VSB"]], ["w04", ["WB04", "VSB"]], ["w05", ["WB05", "VSB"]], ["w06", ["WB06", "VSB"]], ["w07", ["WB07", "VSB"]], ["w08", ["WB08", "VSB"]], ["w09", ["WB09", "VSB"]]], hideElements: ["w10", "w11", "w12", "w13", "w14", "w15", "w16"] },
+        "10A": { addClasses: [["w01", ["WC01", "VSC"]], ["w02", ["WC02", "VSC"]], ["w03", ["WA09", "VSA"]], ["w04", ["WA10", "VSA"]], ["w05", ["WA11", "VSA"]], ["w06", ["WA12", "VSA"]], ["w07", ["WA13", "VSA"]], ["w08", ["WA14", "VSA"]], ["w09", ["WA15", "VSA"]], ["w10", ["WA16", "VSA"]]], hideElements: ["w11", "w12", "w13", "w14", "w15", "w16"] },
+        "16A": { addClasses: all.map(wNo => [wNo, ["WA" + wNo.slice(-2), "VSA"]]), hideElements: [] }
+      };
 
-          document.getElementById("w01").classList.add("WC01C", "VSC", "CSC");
-          document.getElementById("w02").classList.add("WC03C", "VSC", "CSC");
-          arr = ["w03", "w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "03A"://6R7C_ok
+      const config = layoutConfig[Lay] || { addClasses: [], hideElements: [] };
 
-          document.getElementById("w01").classList.add("WB01C", "VSB", "CSB");
-          document.getElementById("w02").classList.add("WB04C", "VSB", "CSB");
-          document.getElementById("w03").classList.add("WB07C", "VSB", "CSB");
-          arr = ["w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "03B"://6R7C_ok
+      config.addClasses.forEach(([wNo, classes]) => {
+        document.getElementById(wNo).classList.add(...classes);
+      });
 
-          document.getElementById("w01").classList.add("WC01C", "VSC", "CSC");
-          document.getElementById("w02").classList.add("WC03", "VSC");
-          document.getElementById("w03").classList.add("WC04", "VSC");
-          arr = ["w04", "w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "04A"://6R7C_ok
+      config.hideElements.forEach(wNo => {
+        const element = document.getElementById(wNo);
+        element.classList.remove("cleared");
+        element.classList.add("Non-Display");
+        const video = element.getElementsByClassName("video")[0];
+        video.src = "";
+        video.classList.add("no-content");
+        const chats = element.getElementsByClassName("chats")[0];
+        if (chats) {
+          chats.src = "";
+          chats.classList.add("no-content");
+        }
 
-          document.getElementById("w01").classList.add("WA01C3", "VSA", "CSD");
-          document.getElementById("w02").classList.add("WA05C3", "VSA", "CSD");
-          document.getElementById("w03").classList.add("WA09C3", "VSA", "CSD");
-          document.getElementById("w04").classList.add("WA13C3", "VSA", "CSD");
-          arr = ["w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "04B"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WC01C", "VSC", "CSC");
-          document.getElementById("w02").classList.add("WB07H", "VSB");
-          document.getElementById("w03").classList.add("WB08H", "VSB");
-          document.getElementById("w04").classList.add("WB09H", "VSB");
-          arr = ["w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "04C"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WC01", "VSC");
-          document.getElementById("w02").classList.add("WC02", "VSC");
-          document.getElementById("w03").classList.add("WC03", "VSC");
-          document.getElementById("w04").classList.add("WC04", "VSC");
-          arr = ["w05", "w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "05A"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WC01C", "VSC", "CSC");
-          document.getElementById("w02").classList.add("WA10", "VSA");
-          document.getElementById("w03").classList.add("WA11", "VSA");
-          document.getElementById("w04").classList.add("WA14", "VSA");
-          document.getElementById("w05").classList.add("WA15", "VSA");
-          arr = ["w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "05B"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WB01C", "VSB", "CSB");
-          document.getElementById("w02").classList.add("WB04C", "VSB", "CSB");
-          document.getElementById("w03").classList.add("WB07", "VSB");
-          document.getElementById("w04").classList.add("WB08", "VSB");
-          document.getElementById("w05").classList.add("WB09", "VSB");
-          arr = ["w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "05C"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WC01", "VSC");
-          document.getElementById("w02").classList.add("WC02", "VSC");
-          document.getElementById("w03").classList.add("WB07H", "VSB");
-          document.getElementById("w04").classList.add("WB08H", "VSB");
-          document.getElementById("w05").classList.add("WB09H", "VSB");
-          arr = ["w06", "w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "06A"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WC01", "VSC");
-          document.getElementById("w02").classList.add("WC02", "VSC");
-          document.getElementById("w03").classList.add("WA10", "VSA");
-          document.getElementById("w04").classList.add("WA11", "VSA");
-          document.getElementById("w05").classList.add("WA14", "VSA");
-          document.getElementById("w06").classList.add("WA15", "VSA");
-          arr = ["w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "06B"://6R7C_ok?
-
-          document.getElementById("w01").classList.add("WB01C", "VSB", "CSB");
-          document.getElementById("w02").classList.add("WB04C", "VSB", "CSB");
-          document.getElementById("w03").classList.add("WA13", "VSA");
-          document.getElementById("w04").classList.add("WA14", "VSA");
-          document.getElementById("w05").classList.add("WA15", "VSA");
-          document.getElementById("w06").classList.add("WA16", "VSA");
-          arr = ["w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "06C"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WB01", "VSB");
-          document.getElementById("w02").classList.add("WB02", "VSB");
-          document.getElementById("w03").classList.add("WB04", "VSB");
-          document.getElementById("w04").classList.add("WB05", "VSB");
-          document.getElementById("w05").classList.add("WB07", "VSB");
-          document.getElementById("w06").classList.add("WB08", "VSB");
-          arr = ["w07", "w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "07A"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WC01C", "VSC", "CSC");
-          document.getElementById("w02").classList.add("WA09", "VSA");
-          document.getElementById("w03").classList.add("WA10", "VSA");
-          document.getElementById("w04").classList.add("WA11", "VSA");
-          document.getElementById("w05").classList.add("WA13", "VSA");
-          document.getElementById("w06").classList.add("WA14", "VSA");
-          document.getElementById("w07").classList.add("WA15", "VSA");
-          arr = ["w08", "w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "08A"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WC01", "VSC");
-          document.getElementById("w02").classList.add("WC02", "VSC");
-          document.getElementById("w03").classList.add("WA09", "VSA");
-          document.getElementById("w04").classList.add("WA10", "VSA");
-          document.getElementById("w05").classList.add("WA11", "VSA");
-          document.getElementById("w06").classList.add("WA13", "VSA");
-          document.getElementById("w07").classList.add("WA14", "VSA");
-          document.getElementById("w08").classList.add("WA15", "VSA");
-          arr = ["w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "08B"://6R7C_ok
-          document.getElementById("w01").classList.add("WA01C1", "VSA", "CSA");
-          document.getElementById("w02").classList.add("WA03C1", "VSA", "CSA");
-          document.getElementById("w03").classList.add("WA05C1", "VSA", "CSA");
-          document.getElementById("w04").classList.add("WA07C1", "VSA", "CSA");
-          document.getElementById("w05").classList.add("WA09C1", "VSA", "CSA");
-          document.getElementById("w06").classList.add("WA11C1", "VSA", "CSA");
-          document.getElementById("w07").classList.add("WA13C1", "VSA", "CSA");
-          document.getElementById("w08").classList.add("WA15C1", "VSA", "CSA");
-          arr = ["w09", "w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "09A"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WC01C", "VSC", "CSC");
-          document.getElementById("w02").classList.add("WA09", "VSA");
-          document.getElementById("w03").classList.add("WA10", "VSA");
-          document.getElementById("w04").classList.add("WA11", "VSA");
-          document.getElementById("w05").classList.add("WA12", "VSA");
-          document.getElementById("w06").classList.add("WA13", "VSA");
-          document.getElementById("w07").classList.add("WA14", "VSA");
-          document.getElementById("w08").classList.add("WA15", "VSA");
-          document.getElementById("w09").classList.add("WA16", "VSA");
-          arr = ["w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "09B"://6R7C_ok
-          now = ["01", "02", "03", "04", "05", "06", "07", "08", "09"];
-          now.forEach((wNo, index) => {
-            document.getElementById("w" + wNo).classList.add("WB" + wNo, "VSB");
-          });
-          arr = ["w10", "w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "10A"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WC01", "VSC");
-          document.getElementById("w02").classList.add("WC02", "VSC");
-          document.getElementById("w03").classList.add("WA09", "VSA");
-          document.getElementById("w04").classList.add("WA10", "VSA");
-          document.getElementById("w05").classList.add("WA11", "VSA");
-          document.getElementById("w06").classList.add("WA12", "VSA");
-          document.getElementById("w07").classList.add("WA13", "VSA");
-          document.getElementById("w08").classList.add("WA14", "VSA");
-          document.getElementById("w09").classList.add("WA15", "VSA");
-          document.getElementById("w10").classList.add("WA16", "VSA");
-          arr = ["w11", "w12", "w13", "w14", "w15", "w16"];
-          break;
-        case "12A"://6R7C_ok
-
-          document.getElementById("w01").classList.add("WA01", "VSA");
-          document.getElementById("w02").classList.add("WA02", "VSA");
-          document.getElementById("w03").classList.add("WA03", "VSA");
-          document.getElementById("w04").classList.add("WA05", "VSA");
-          document.getElementById("w05").classList.add("WA06", "VSA");
-          document.getElementById("w06").classList.add("WA07", "VSA");
-          document.getElementById("w07").classList.add("WA09", "VSA");
-          document.getElementById("w08").classList.add("WA10", "VSA");
-          document.getElementById("w09").classList.add("WA11", "VSA");
-          document.getElementById("w10").classList.add("WA13", "VSA");
-          document.getElementById("w11").classList.add("WA14", "VSA");
-          document.getElementById("w12").classList.add("WA15", "VSA");
-          arr = ["w13", "w14", "w15", "w16"];
-          break;
-        case "16A"://6R7C_ok
-          now = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16"];
-          now.forEach((wNo, index) => {
-            document.getElementById("w" + wNo).classList.add("WA" + wNo, "VSA");
-          });
-          arr = [];
-          break;
-        default:
-          now = [];
-          arr = [];
-      }
-
-      arr.forEach((wNo, index) => {
-        //再生を停止
-        document.getElementById(wNo).classList.remove("cleared");
-        document.getElementById(wNo).classList.add("Non-Display");
-        document.getElementById(wNo).getElementsByClassName("video")[0].src = "";
-        document.getElementById(wNo).getElementsByClassName("video")[0].classList.add("no-content");
-        try {
-          document.getElementById(wNo).getElementsByClassName("chats")[0].src = "";
-          document.getElementById(wNo).getElementsByClassName("chats")[0].classList.add("no-content");
-        } catch (e) { }
-
-        //再生停止したアイコンの枠を変更・ボタンを有効化・パラメータを削除
-        var current = new URL(window.location);
-        let iNo = current.searchParams.get(wNo);
-        if (iNo != null) {
-          if (iNo.indexOf('icon') != -1) {
-            document.getElementById(iNo).style.border = "solid 3px rgba(0,0,0,0.5)";
-            //document.getElementById(iNo).style.opacity = 1.0;
-          }
+        // アイコン枠の変更とボタンの有効化
+        const iNo = current.searchParams.get(wNo);
+        if (iNo && iNo.includes('icon')) {
+          document.getElementById(iNo).style.border = "solid 3px rgba(0,0,0,0.5)";
         }
         current.searchParams.delete(wNo);
-        window.history.replaceState('', '', current);
-
       });
 
+      window.history.replaceState('', '', current);
     }
+
     async function getLink(No) {
       var YID = '';
       var TID = '';
@@ -679,8 +484,7 @@
           return;
         } else if (text.indexOf('icon') != -1) {
           let key = text;
-          console.log("restartWindow", key)
-          let result = await getLink(key);
+          let result = await getLink(key.replace("icon", ""));
           type = result[0];
           text = result[1];
           document.getElementById(key).style.border = "solid 3px rgba(177,29,44,1)";
